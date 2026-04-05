@@ -70,6 +70,9 @@ public class DifferenceObjectsClasses {
                 System.out.println(" - Swap (Change Car) ");
             }
             input = scanner.nextLine().trim();
+            if (input.equals("fin")) {
+                break;
+            }
             if (input.equals("A") || input.equals("B")) {
                     _selection = input;
                 }
