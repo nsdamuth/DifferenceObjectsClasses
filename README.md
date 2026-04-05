@@ -1,1 +1,10 @@
-# DifferenceObjectsClasses
+Classes vs Objects (and subclasses)
+Classes are the blueprint for how a thing works, what it does, and how it functions. They define not only the outward behavior but also the internal rules and structure that govern it.
+Example: A Car blueprint might include an action for "drive" or "honk"; these actions define how a car would "honk" or respond to being put into "drive." Internal (private) functions would be used to define how "drive" actually works under various conditions, such as acceleration over time, responding to a "stop" action, or shifting automatic gears. These internal components are not directly exposed, but they are critical to ensuring the visible behavior is consistent and reliable.
+
+Subclasses are refinements of that blueprint. They extend or specialize the original design without discarding it. For example, a truck, pickup, or SUV might inherit from Car, keeping core functionality like honking and driving, while adjusting its behavior to match its purpose. A truck might handle load weight differently, an SUV might adjust suspension logic, but all still operate within the same foundational structure defined by the parent class.
+
+An object is an instantiation of that blueprint in memory as a usable instance. It is the real, working version of the design.
+Example: An instance of Car (Car A) is loaded into memory; it can be used, and a user can invoke its honk and drive functions to perform those actions. Another instance, Car B, can then be instantiated, and its honk and drive functions can also be invoked. Still, it remains completely separate from Car A, with its own independent state and behavior.
+
+In short, classes define capability, subclasses refine that capability, and objects execute it in practice. This separation allows systems to scale cleanly, reuse logic without duplication, and maintain predictable behavior even as complexity grows.
