@@ -9,6 +9,8 @@ class Car {
     private boolean _is_driving = false;
     private float _speed = 0;
     // This is the internal method for handling driving
+    // Would have preferred to multi-thread this, but that is beyond the scope of this so keeping it public.
+    // This accelerates the speed each entry the user performs, regardless of if they are "using" the car
     public void driving() {
         if (_is_driving) {
             if (_speed < 60) {
@@ -22,14 +24,17 @@ class Car {
             }
         }
     }
+    // Drive sets the state of the car, and the initial speed
     public void drive() {
         _is_driving = true;
         _speed = 1;
     }
+    // stops the car, setting it back to base state
     public void stop() {
         _is_driving = false;
         _speed = 0;
     }
+    // just honks the horn! *BEEP BEEP*
     public void honk() {
         System.out.println(String.format("Car %s honks! *HONK*", _name));
     }
@@ -40,8 +45,10 @@ class Car {
         _name = car_name;
     }
 }
+// Defining the main progrm
 public class DifferenceObjectsClasses {
     public static void main(String[] args) {
+        // main instantiates the two instances of "Car" blueprint (class) in memory for use
         String _selection = null;
         Car car_a = new Car("A");
         Car car_b = new Car("B");
@@ -51,6 +58,7 @@ public class DifferenceObjectsClasses {
         String input = null;
         while (input != "fin") {
             if (_selection == null) {
+                // Select which instance of the car to use
                 System.out.println("What car would you like to control ?");
                 System.out.println(" - A ");
                 System.out.println(" - B ");
@@ -66,6 +74,7 @@ public class DifferenceObjectsClasses {
                     _selection = input;
                 }
                 // Breaking DRY principals for reduces complexity
+                // implements use of the car functions while driving.
                 if (_selection.equals("A")) {
                     if (input.equals("honk")) {
                         car_a.honk();
@@ -88,6 +97,7 @@ public class DifferenceObjectsClasses {
                         car_b.stop();
                     }
                 }
+                // Select which instance of the car to use
                 if (input.equals("swap")) {
                     _selection = (_selection.equals("A")) ? "B" : "A";
                 }
